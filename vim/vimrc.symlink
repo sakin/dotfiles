@@ -1,4 +1,169 @@
+" be IMproved
+set nocompatible
+
+" 'required' ???
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" load all vundle plugins
+source $HOME/.vim/packages.vim
+
+" make stuff pretty
 syntax on
 
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+" Be a cool guy
+set encoding=utf-8
+
+" better nerdtree splits
+set splitbelow
+set splitright
+
+" indent git commits
+filetype plugin indent on
+
+" Update how vim looks
+set background=dark
+colorscheme Tomorrow-Night-Eighties
+
+" show the cursor position all the time
+set ruler
+
+" show line numbers
+set number
+
+" draw a line on the same as the cursor position
+set cursorline
+
+" enable mouse support
+set mouse=a
+
+" display incomplete commands
+set showcmd
+
+" set the screen title to the currently opened file
+set title
+
+" stop blinking cursors
+set gcr=n:blinkon0
+
+" for powerline visiblity
+set laststatus=2
+set cmdheight=2
+let g:Powerline_symbols = 'fancy'
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_auto_loc_list=1
+
+" Allow backgrounding buffers without writing them, and remember marks/undo
+" for backgrounded buffers
+set hidden
+" Save undo's after file closes
+set undofile                    
+" where to save undo histories
+set undodir=~/.vim/undo
+
+" Turn backup off, since most stuff is in SVN, git anyway...
+set nobackup
+set nowb
+set noswapfile
+
+" Don't wrap lines, ew
+set nowrap
+
+" A tab is 2 spaces
+set tabstop=2
+set shiftwidth=2
+" use spaces, not tabs
+set expandtab
+
+" Show invisibles
+set list
+
+" reset invisible characters
+set listchars=""
+
+" show tabs as normal
+set listchars=tab:\ \
+" whitespace as "."
+set listchars+=trail:.
+
+" character is offscreen
+set listchars+=extends:>
+set listchars+=precedes:<
+
+" Allow backspacing while in insert
+set backspace=indent,eol,start
+
+
+" Improve searching
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+" Highlight line 80
+set cc=80 
+
+" Command line completion
+set wildmenu
+set wildmode=list:longest,full
+
+" provide some context when editing
+set scrolloff=3
+
+
+" Leader Mappings
+let mapleader=";"
+let maplocalleader=";"
+
+" clear the search buffer when hitting ;return
+map <silent> <leader><cr> :noh<cr> 
+
+" Map space to / (search) and c-space to ? (backgwards search)
+map <space> /
+map <c-space> ?
+
+" toggle last buffer
+nnoremap <leader><leader> <c-^>
+
+" goto previous buffer, then delete previous buffer (close buffer, keep split)
+nmap <leader>d :b#<bar>bd#<CR>
+
+" easier navigation between split windows
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+" NERDTree
+nnoremap <leader>n :NERDTreeToggle<CR>
+" quit NERDTree after opening a file
+let g:NERDTreeQuitOnOpen = 0
+
+" Map easy autoclose toggle
+nmap <unique> <Leader>ac <Plug>ToggleAutoCloseMappings
+
+" I'm getting tired of accidentally holding down the shift key...
+" Reissue `w` even if I capitalize it...
+com W w
+com Q q
+
+" CtrlP
+let g:ctrlp_extensions = ['tag']
+let g:ctrlp_match_window_bottom = 1
+let g:ctrlp_match_window_reversed = 1
+" let g:ctrlp_working_path_mode = 'rw'
+let g:ctrlp_dotfiles = 0 "so ctrlp won't search dotfiles/dotdirs
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_map = '<leader>f'
+let g:ctrlp_custom_ignore = 'build'
+let g:ctrlp_follow_symlinks = 1
+
+" syntastic
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['scss'] }
+
+" Arpeggio - map jk to escape (mashing ftw)
+call arpeggio#map('i', '', 0, 'jk', '<Esc>') " jk | esc
