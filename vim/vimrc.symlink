@@ -15,6 +15,7 @@ source $HOME/.vim/packages.vim
 syntax on
 
 " Be a cool guy
+scriptencoding utf-8
 set encoding=utf-8
 
 " better nerdtree splits
@@ -76,8 +77,9 @@ set nowrap
 " A tab is 2 spaces
 set tabstop=2
 set shiftwidth=2
+
 " use spaces, not tabs
-set expandtab
+set noexpandtab
 
 " Show invisibles
 set list
@@ -86,9 +88,10 @@ set list
 set listchars=""
 
 " show tabs as normal
-set listchars=tab:\ \
+set listchars=tab:→\ 
+
 " whitespace as "."
-set listchars+=trail:.
+set listchars+=trail:·
 
 " character is offscreen
 set listchars+=extends:>
