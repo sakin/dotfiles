@@ -23,8 +23,22 @@ Bundle 'surround.vim'
 " Can't figure out why I can't vundle this
 " Bundle 'Valloric/YouCompleteMe'
 
-" Cool guy Unite Autocomplete
+" Set up unite
 Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/unite-outline'
+Bundle 'Shougo/unite-help'
+Bundle 'Shougo/unite-session'
+Bundle 'Shougo/neomru.vim'
+Bundle 'thinca/vim-unite-history'
+Bundle 'mileszs/ack.vim'
+
+" For file browsing, etc in unite, we need to utilize vimproc
+" After this is installed through bundle, we also need to run
+" make to finish setting it up
+Bundle 'Shougo/vimproc.vim'
+
+" Snippets
+Bundle 'SirVer/ultisnips'
 
 " Add boring old ctrlp fuzzy find
 " Bundle 'kien/ctrlp.vim'
