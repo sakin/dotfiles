@@ -53,7 +53,6 @@ set gcr=n:blinkon0
 " for powerline visiblity
 set laststatus=2
 set cmdheight=2
-let g:Powerline_symbols = 'fancy'
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_auto_loc_list=1
@@ -170,3 +169,6 @@ let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['scss'] }
 
 " Arpeggio - map jk to escape (mashing ftw)
 call arpeggio#map('i', '', 0, 'jk', '<Esc>') " jk | esc
+
+" Add powerline symbol fonts to airline
+let g:airline_powerline_fonts = 1
