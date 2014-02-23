@@ -1,5 +1,5 @@
 " Leave my vundle alone!
-Bundle 'gmarik/Vundle.vim'
+Bundle 'vundle'
 
 " File tree
 Bundle 'The-NERD-tree'
