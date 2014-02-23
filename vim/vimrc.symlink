@@ -57,9 +57,6 @@ set gcr=n:blinkon0
 " for powerline visiblity
 set laststatus=2
 set cmdheight=2
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_auto_loc_list=1
 
 " Allow backgrounding buffers without writing them, and remember marks/undo
 " for backgrounded buffers
@@ -168,12 +165,6 @@ let g:ctrlp_map = '<leader>f'
 let g:ctrlp_custom_ignore = 'build'
 let g:ctrlp_follow_symlinks = 1
 
-" syntastic
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['scss'] }
-
-" Arpeggio - map jk to escape (mashing ftw)
-call arpeggio#map('i', '', 0, 'jk', '<Esc>') " jk | esc
-
 " Add powerline symbol fonts to airline
 let g:airline_powerline_fonts = 1
 
@@ -229,3 +220,37 @@ inoremap <c-e> <esc>A
 
 " Ctrl-a: Go to begin of line
 inoremap <c-a> <esc>I
+
+
+
+"===============================================================================
+"" Syntastic
+"===============================================================================
+
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['scss'] }
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_auto_loc_list=1
+
+
+
+"===============================================================================
+"" Arpeggio
+"===============================================================================
+
+" map jk to escape (mashing ftw)
+call arpeggio#map('i', '', 0, 'jk', '<Esc>') " jk | esc
+
+
+
+"===============================================================================
+"" EasyMotion
+"===============================================================================
+
+" Tweak the colors
+" hi link EasyMotionTarget WarningMsg
+" hi link EasyMotionShade  Comment
+
+" let g:EasyMotion_do_mapping = 0
+" nnoremap <silent> <C-f> :call EasyMotion
+" nnoremap <silent> <C-t> :call EasyMotion

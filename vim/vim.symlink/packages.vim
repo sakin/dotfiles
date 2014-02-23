@@ -18,22 +18,20 @@ Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'surround.vim'
 
 " Autocomplete my files
-Bundle 'Shougo/neocomplcache.vim'
+" Bundle 'Shougo/neocomplcache.vim'
 
-" Autocomplete my typing
-Bundle 'Townk/vim-autoclose'
+" Can't figure out why I can't vundle this
+" Bundle 'Valloric/YouCompleteMe'
 
 " Cool guy Unite Autocomplete
-" Bundle 'Shougo/unite.vim'
+Bundle 'Shougo/unite.vim'
 
 " Add boring old ctrlp fuzzy find
-Bundle 'kien/ctrlp.vim'
+" Bundle 'kien/ctrlp.vim'
 
 " Improved commenting
-Bundle 'tComment'
-
-" Better guide indenting
-Bundle 'nathanaelkane/vim-indent-guides'
+" Bundle 'tComment'
+Bundle 'scrooloose/nerdcommenter'
 
 " tell me when I'm an idiot
 Bundle 'scrooloose/syntastic'
@@ -42,16 +40,10 @@ Bundle 'scrooloose/syntastic'
 Bundle 'sjl/vitality.vim'
 
 " I'm a vim sniper
-Bundle 'chreekat/vim-paren-crosshairs'
-
-" Make markdown pretty
-Bundle 'plasticboy/vim-markdown'
-
-" Cross file search and replace
-Bundle 'vim-scripts/greplace.vim'
+" Bundle 'chreekat/vim-paren-crosshairs'
 
 " Enable ninja vim motions
-Bundle 'Lokaltog/vim-easymotion'
+" Bundle 'Lokaltog/vim-easymotion'
 
 " I miss sublime text
 Bundle 'terryma/vim-multiple-cursors'
@@ -63,10 +55,8 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'groenewege/vim-less'
 Bundle 'cakebaker/scss-syntax.vim'
-Bundle 'hail2u/vim-css3-syntax'
-
-" Highlight colors in css
-Bundle 'skammer/vim-css-color'
+Bundle 'tpope/vim-markdown'
+Bundle 'terryma/vim-instant-markdown'
 
 " Plink those keys
 Bundle 'arpeggio'
