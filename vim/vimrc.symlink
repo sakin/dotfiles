@@ -439,3 +439,12 @@ let g:unite_cursor_line_highlight = 'TabLineSel'
 
 let g:unite_source_file_mru_filename_format = ':~:.'
 let g:unite_source_file_mru_time_format = ''
+
+
+
+"===============================================================================
+" Unite Sessions
+"===============================================================================
+
+" Save session automatically.
+let g:unite_source_session_enable_auto_save = 1
