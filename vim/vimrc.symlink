@@ -1,3 +1,7 @@
+"===============================================================================
+"" Setup
+"===============================================================================
+
 " be IMproved
 set nocompatible
 
@@ -80,21 +84,21 @@ set shiftwidth=2
 " use spaces, not tabs
 set noexpandtab
 
-" Show invisibles
+" Display unprintable chars
 set list
+set listchars=tab:→\ ,extends:❯,precedes:❮,nbsp:␣
+set showbreak=↪
 
-" reset invisible characters
-set listchars=""
-
-" show tabs as normal
-set listchars=tab:→\ 
-
-" whitespace as "."
-set listchars+=trail:·
-
-" character is offscreen
-set listchars+=extends:>
-set listchars+=precedes:<
+" listchar=trail is not as flexible, use the below to highlight trailing
+" whitespace. Don't do it for unite windows or readonly files
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+augroup MyAutoCmd
+	autocmd BufWinEnter * if &modifiable && &ft!='unite' | match ExtraWhitespace /\s\+$/ | endif
+	autocmd InsertEnter * if &modifiable && &ft!='unite' | match ExtraWhitespace /\s\+\%#\@<!$/ | endif
+	autocmd InsertLeave * if &modifiable && &ft!='unite' | match ExtraWhitespace /\s\+$/ | endif
+	autocmd BufWinLeave * if &modifiable && &ft!='unite' | call clearmatches() | endif
+augroup END
 
 " Allow backspacing while in insert
 set backspace=indent,eol,start
@@ -172,3 +176,56 @@ call arpeggio#map('i', '', 0, 'jk', '<Esc>') " jk | esc
 
 " Add powerline symbol fonts to airline
 let g:airline_powerline_fonts = 1
+
+" Sets how many lines of history vim has to remember
+set history=10000
+
+" Set to auto read when a file is changed from the outside
+set autoread
+
+" Cursor settings. This makes terminal vim sooo much nicer!
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
+
+
+
+"===============================================================================
+"" Normal Mode Shift Key Mappings
+"===============================================================================
+
+" U: Redos since 'u' undos
+nnoremap U :redo<cr>
+
+" H: Go to beginning of line.
+noremap H ^
+
+" L: Go to end of line.
+noremap L g_
+
+
+
+"===============================================================================
+"" Normal Mode Ctrl Key Mappings
+"===============================================================================
+
+" Ctrl-u/d: Scroll half a screen smoothly
+" noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 5, 1)<CR>
+" noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 5, 1)<CR>
+
+
+
+"===============================================================================
+"" Insert Mode Ctrl Key Mappings
+"===============================================================================
+
+" Ctrl-e: Go to end of line
+inoremap <c-e> <esc>A
+
+" Ctrl-a: Go to begin of line
+inoremap <c-a> <esc>I
