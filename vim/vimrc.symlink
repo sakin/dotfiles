@@ -129,7 +129,7 @@ let mapleader=";"
 let maplocalleader=";"
 
 " clear the search buffer when hitting ;return
-map <silent> <leader><cr> :noh<cr> 
+map <silent> <leader><cr> :nohl<cr> 
 
 " Map space to / (search) and c-space to ? (backgwards search)
 " map <space> /
@@ -151,9 +151,6 @@ nnoremap <c-l> <c-w>l
 nnoremap <leader>n :NERDTreeToggle<CR>
 " quit NERDTree after opening a file
 let g:NERDTreeQuitOnOpen = 0
-
-" Map easy autoclose toggle
-nmap <unique> <Leader>ac <Plug>ToggleAutoCloseMappings
 
 " I'm getting tired of accidentally holding down the shift key...
 " Reissue `w` even if I capitalize it...
@@ -204,6 +201,18 @@ noremap H ^
 
 " L: Go to end of line.
 noremap L g_
+
+
+
+"===============================================================================
+"" Leader Key Mappings
+"===============================================================================
+
+" Map easy autoclose toggle
+" nmap <unique> <Leader>ac <Plug>ToggleAutoCloseMappings
+
+" toggle syntastic, sometimes I just dont care
+nmap <unique> <Leader>s :SyntasticToggleMode<cr>
 
 
 
