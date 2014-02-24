@@ -114,7 +114,7 @@ set ignorecase
 set smartcase
 
 " Highlight line 80
-set cc=80 
+set cc=80
 
 " Command line completion
 set wildmenu
@@ -124,23 +124,6 @@ set wildmode=list:longest,full
 set scrolloff=3
 
 
-" Leader Mappings
-let mapleader=";"
-let maplocalleader=";"
-
-" clear the search buffer when hitting ;return
-map <silent> <leader><cr> :nohl<cr> 
-
-" Map space to / (search) and c-space to ? (backgwards search)
-" map <space> /
-" map <c-space> ?
-
-" toggle last buffer
-nnoremap <leader><leader> <c-^>
-
-" goto previous buffer, then delete previous buffer (close buffer, keep split)
-nmap <leader>d :b#<bar>bd#<CR>
-
 " easier navigation between split windows
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -149,6 +132,7 @@ nnoremap <c-l> <c-w>l
 
 " NERDTree
 nnoremap <leader>n :NERDTreeToggle<CR>
+
 " quit NERDTree after opening a file
 let g:NERDTreeQuitOnOpen = 0
 
@@ -208,11 +192,24 @@ noremap L g_
 "" Leader Key Mappings
 "===============================================================================
 
-" Map easy autoclose toggle
-" nmap <unique> <Leader>ac <Plug>ToggleAutoCloseMappings
+" Set my leader to be semi-awesome
+let mapleader=";"
+let maplocalleader=";"
+
+" clear the search buffer when hitting ;return
+map <silent> <leader><cr> :nohl<cr> 
+
+" toggle last buffer
+nnoremap <leader><leader> <c-^>
+
+" goto previous buffer, then delete previous buffer (close buffer, keep split)
+nmap <leader>d :b#<bar>bd#<CR>
 
 " toggle syntastic, sometimes I just dont care
 nmap <unique> <Leader>s :SyntasticToggleMode<cr>
+
+" Toggle paste mode
+nmap <unique> <Leader>p :set paste!<cr>
 
 
 

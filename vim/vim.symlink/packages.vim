@@ -20,7 +20,8 @@ Bundle 'surround.vim'
 " Autocomplete my files
 " Bundle 'Shougo/neocomplcache.vim'
 
-" Can't figure out why I can't vundle this
+" Auto complete, needs to be compiled
+" Seems to hate my existing version of python/vim
 " Bundle 'Valloric/YouCompleteMe'
 
 " Set up unite
@@ -74,6 +75,9 @@ Bundle 'terryma/vim-instant-markdown'
 
 " Plink those keys
 Bundle 'arpeggio'
+
+" I'm lazy
+Bundle 'AutoClose'
 
 " Git Stuff
 Bundle 'fugitive.vim'
