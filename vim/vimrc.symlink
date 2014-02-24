@@ -171,7 +171,7 @@ endif
 
 
 "===============================================================================
-"" Normal Mode Shift Key Mappings
+" Normal Mode Shift Key Mappings
 "===============================================================================
 
 " U: Redos since 'u' undos
@@ -186,7 +186,7 @@ noremap L g_
 
 
 "===============================================================================
-"" Leader Key Mappings
+" Leader Key Mappings
 "===============================================================================
 
 " Set my leader to be semi-awesome
@@ -214,7 +214,7 @@ nnoremap <leader>n :NERDTreeToggle<cr>
 
 
 "===============================================================================
-"" Function Key Mappings
+" Function Key Mappings
 "===============================================================================
 
 " <F1>: Help
@@ -226,14 +226,14 @@ nnoremap <F4> :<C-u>UniteSessionSave
 
 
 "===============================================================================
-"" Normal Mode Ctrl Key Mappings
+" Normal Mode Ctrl Key Mappings
 "===============================================================================
 
 " Ctrl-u/d: Scroll half a screen smoothly
 " noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 5, 1)<CR>
 " noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 5, 1)<CR>
 
-"" I think I want these as leader key functions
+" I think I want these as leader key functions
 " Ctrl-e: Find (e)verything
 nmap <c-e> [unite]f
 
@@ -255,7 +255,7 @@ nmap <c-_> [unite]l
 
 
 "===============================================================================
-"" Insert Mode Ctrl Key Mappings
+" Insert Mode Ctrl Key Mappings
 "===============================================================================
 
 " Ctrl-e: Go to end of line
@@ -267,7 +267,7 @@ inoremap <c-a> <esc>I
 
 
 "===============================================================================
-"" Syntastic
+" Syntastic
 "===============================================================================
 
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['scss'] }
@@ -278,7 +278,7 @@ let g:syntastic_auto_loc_list=1
 
 
 "===============================================================================
-"" Arpeggio
+" Arpeggio
 "===============================================================================
 
 " map jk to escape (mashing ftw)
@@ -287,7 +287,44 @@ call arpeggio#map('i', '', 0, 'jk', '<Esc>') " jk | esc
 
 
 "===============================================================================
-"" EasyMotion
+" NeoComplCache
+"===============================================================================
+
+" Launches neocomplcache automatically on vim startup.
+let g:neocomplcache_enable_at_startup = 1
+" Use smartcase.
+let g:neocomplcache_enable_smart_case = 1
+" Use camel case completion.
+let g:neocomplcache_enable_camel_case_completion = 1
+" Use underscore completion.
+let g:neocomplcache_enable_underbar_completion = 1
+" Sets minimum char length of syntax keyword.
+let g:neocomplcache_min_syntax_length = 4
+let g:neocomplcache_min_keyword_length = 4
+" AutoComplPop like behavior.
+let g:neocomplcache_enable_auto_select = 1
+let g:neocomplcache_max_list=10
+
+" Enter always performs a literal enter
+imap <expr><cr> neocomplcache#smart_close_popup() . "\<CR>"
+
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+
+
+"===============================================================================
+" SuperTab
+"===============================================================================
+
+" Reverse tabbing direction for autocompletes
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+
+
+
+"===============================================================================
+" EasyMotion
 "===============================================================================
 
 " Tweak the colors

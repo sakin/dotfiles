@@ -18,7 +18,9 @@ Bundle 'chriskempson/vim-tomorrow-theme'
 Bundle 'surround.vim'
 
 " Autocomplete my files
-" Bundle 'Shougo/neocomplcache.vim'
+Bundle 'Shougo/neocomplcache.vim'
+Bundle 'ervandew/supertab'
+" Bundle 'vim-scripts/AutoComplPop'
 
 " Auto complete, needs to be compiled
 " Seems to hate my existing version of python/vim
@@ -39,7 +41,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'Shougo/vimproc.vim'
 
 " Snippets
-Bundle 'SirVer/ultisnips'
+" Bundle 'SirVer/ultisnips'
 
 " Add boring old ctrlp fuzzy find
 " Bundle 'kien/ctrlp.vim'
