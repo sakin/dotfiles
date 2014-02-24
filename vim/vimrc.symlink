@@ -130,9 +130,6 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" NERDTree
-nnoremap <leader>n :NERDTreeToggle<CR>
-
 " quit NERDTree after opening a file
 let g:NERDTreeQuitOnOpen = 0
 
@@ -210,6 +207,9 @@ nmap <unique> <Leader>s :SyntasticToggleMode<cr>
 
 " Toggle paste mode
 nmap <unique> <Leader>p :set paste!<cr>
+
+" NERDTree
+nnoremap <leader>n :NERDTreeToggle<cr>
 
 
 
