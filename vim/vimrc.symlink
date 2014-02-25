@@ -84,12 +84,13 @@ set noexpandtab
 " Display unprintable chars
 set list
 
-" set listchars=tab:→\ 
+"set listchars=tab:→\ 
 
 set listchars=tab:\ \ 
 set listchars+=nbsp:␣
 set listchars+=extends:❯
 set listchars+=precedes:❮
+set listchars+=trail:.
 set showbreak=↪
 
 " listchar=trail is not as flexible, use the below to highlight trailing
@@ -105,6 +106,13 @@ augroup END
 
 " Allow backspacing while in insert
 set backspace=indent,eol,start
+
+" Set up code folding
+set foldmethod=indent
+set foldcolumn=2
+
+" Open folds by default
+set foldlevel=99
 
 
 " Improve searching
@@ -210,6 +218,9 @@ nmap <unique> <Leader>p :set paste!<cr>
 
 " NERDTree
 nnoremap <leader>n :NERDTreeToggle<cr>
+
+" open .vimrc
+nmap <leader>v :tabnew ~/.vimrc <cr>
 
 
 
@@ -404,6 +415,7 @@ nnoremap <silent> [unite]d
 
 " Quick file search
 nnoremap <silent> [unite]f :<C-u>Unite -buffer-name=files file_rec/async file/new<CR>
+nnoremap <silent> [unite]<space> :<C-u>Unite -buffer-name=files file_rec/async file/new<CR>
 
 " Quick grep from cwd, super useful 'find code in this project'
 nnoremap <silent> [unite]g :<C-u>Unite -buffer-name=grep grep:.<CR>
