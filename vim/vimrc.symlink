@@ -131,13 +131,6 @@ set wildmode=list:longest,full
 " provide some context when editing
 set scrolloff=3
 
-
-" easier navigation between split windows
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
-
 " quit NERDTree after opening a file
 let g:NERDTreeQuitOnOpen = 0
 
@@ -145,17 +138,6 @@ let g:NERDTreeQuitOnOpen = 0
 " Reissue `w` even if I capitalize it...
 com W w
 com Q q
-
-" CtrlP
-let g:ctrlp_extensions = ['tag']
-let g:ctrlp_match_window_bottom = 1
-let g:ctrlp_match_window_reversed = 1
-" let g:ctrlp_working_path_mode = 'rw'
-let g:ctrlp_dotfiles = 0 "so ctrlp won't search dotfiles/dotdirs
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_map = '<leader>f'
-let g:ctrlp_custom_ignore = 'build'
-let g:ctrlp_follow_symlinks = 1
 
 " Add powerline symbol fonts to airline
 let g:airline_powerline_fonts = 1
@@ -207,9 +189,6 @@ map <silent> <leader><cr> :nohl<cr>
 " toggle last buffer
 nnoremap <leader><leader> <c-^>
 
-" goto previous buffer, then delete previous buffer (close buffer, keep split)
-nmap <leader>d :b#<bar>bd#<CR>
-
 " toggle syntastic, sometimes I just dont care
 nmap <unique> <Leader>s :SyntasticToggleMode<cr>
 
@@ -223,45 +202,16 @@ nnoremap <leader>n :NERDTreeToggle<cr>
 nmap <leader>v :tabnew ~/.vimrc <cr>
 
 
-
-"===============================================================================
-" Function Key Mappings
-"===============================================================================
-
-" <F1>: Help
-nmap <F1> [unite]h
-
-" <F4>: Save session
-nnoremap <F4> :<C-u>UniteSessionSave
-
-
-
 "===============================================================================
 " Normal Mode Ctrl Key Mappings
 "===============================================================================
 
-" Ctrl-u/d: Scroll half a screen smoothly
-" noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 5, 1)<CR>
-" noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 5, 1)<CR>
-
-" I think I want these as leader key functions
-" Ctrl-e: Find (e)verything
-nmap <c-e> [unite]f
-
-" Ctrl-r: Command history using Unite, this matches my muscle memory in zsh
-nmap <c-r> [unite];
-
-" Ctrl-y: Yanks
-nmap <c-y> [unite]y
-
-" Ctrl-p: Find MRU and buffers
-nmap <c-p> [unite]u
-
-" Ctrl-\: Quick outline
-nmap <silent> <c-\> [unite]o
-
-" Ctrl-/: A more powerful '/'
-nmap <c-_> [unite]l
+" easier navigation between split windows
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-r> <c-w>r
 
 
 
@@ -333,7 +283,6 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 
 
 
-
 "===============================================================================
 " EasyMotion
 "===============================================================================
@@ -353,15 +302,33 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 " Unite Setup
 "===============================================================================
 
-" <F1>: Help
-" <F4>: Save session
+" Globals ======================================================================
 
-" Ctrl-e: Find (e)verything
-" Ctrl-r: Command history using Unite, this matches my muscle memory in zsh
-" Ctrl-y: Yanks
-" Ctrl-p: Find MRU and buffers
-" Ctrl-\: Quick outline
-" Ctrl-/: A more powerful '/'
+" Start Insert
+let g:unite_enable_start_insert = 1
+let g:unite_enable_short_source_names = 1
+
+" Enable history yank source
+let g:unite_source_history_yank_enable = 1
+
+" Open in bottom right
+let g:unite_split_rule = "botright"
+
+" Shorten the default update date of 500ms
+let g:unite_update_time = 100
+
+" set up mru limit
+let g:unite_source_file_mru_limit = 1000
+
+" highlight like my vim
+let g:unite_cursor_line_highlight = 'CursorLine'
+
+" format mru
+let g:unite_source_file_mru_filename_format = ':~:.'
+let g:unite_source_file_mru_time_format = ''
+
+" set up coolguy arrow prompt
+let g:unite_prompt = '→ '
 
 " Use the fuzzy matcher for everything
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
@@ -376,131 +343,75 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ 'git5/.*/review/',
       \ 'google/obj/',
       \ 'tmp/',
+      \ 'node_modules/',
       \ '.sass-cache',
       \ ], '\|'))
 
-" Map space to the prefix for Unite
+
+" <F1>: Help
+
+" Unite Commands ===============================================================
+
+" No prefix for unite, leader that bish
 nnoremap [unite] <Nop>
-nmap <space> [unite]
 
-" General fuzzy search, seems useless?
-" nnoremap <silent> [unite]<space> :<C-u>Unite
-"       \ -buffer-name=files buffer file_mru bookmark file_rec/async<CR>
+" ;f Fuzzy Find Everything
+" Buffers, recently used, recursive async file search
+nnoremap <silent> <leader>f :<C-u>Unite
+      \ -buffer-name=files buffer file_mru file_rec/async<CR>
 
-" Quick registers
-" Buggy when i tried it
-" nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
+" ;y Yank history
+nnoremap <silent> <leader>y :<C-u>Unite -buffer-name=yanks history/yank<CR>
 
-" Quick buffer and mru, for recent stuff
-nnoremap <silent> [unite]u :<C-u>Unite -buffer-name=buffers buffer file_mru<CR>
+" ;o Quick outline, see an overview of this file
+nnoremap <silent> <leader>o :<C-u>Unite -buffer-name=outline -vertical outline<CR>
 
-" Quick yank history
-nnoremap <silent> [unite]y :<C-u>Unite -buffer-name=yanks history/yank<CR>
+" ;u Unite Sources
+nnoremap <silent> <leader>u :<C-u>Unite -buffer-name=sources source<CR>
 
-" Quick outline, see an overview of this file
-nnoremap <silent> [unite]o :<C-u>Unite -buffer-name=outline -vertical outline<CR>
-
-" Quick sessions (projects), ???
-" nnoremap <silent> [unite]p :<C-u>Unite -buffer-name=sessions session<CR>
-
-" Quick sources
-nnoremap <silent> [unite]a :<C-u>Unite -buffer-name=sources source<CR>
-
-" Quick snippet, failed
-" nnoremap <silent> [unite]s :<C-u>Unite -buffer-name=snippets snippet<CR>
-
-" Quickly switch lcd
-nnoremap <silent> [unite]d
+" ;d Switch project directory
+nnoremap <silent> <Leader>d
       \ :<C-u>Unite -buffer-name=change-cwd -default-action=lcd directory_mru<CR>
-
-" Quick file search
-nnoremap <silent> [unite]f :<C-u>Unite -buffer-name=files file_rec/async file/new<CR>
-nnoremap <silent> [unite]<space> :<C-u>Unite -buffer-name=files file_rec/async file/new<CR>
-
-" Quick grep from cwd, super useful 'find code in this project'
-nnoremap <silent> [unite]g :<C-u>Unite -buffer-name=grep grep:.<CR>
-
-" Quick help
-nnoremap <silent> [unite]h :<C-u>Unite -buffer-name=help help<CR>
 
 " Quick find using the word under cursor
 nnoremap <silent> [unite]l :<C-u>UniteWithCursorWord -buffer-name=search_file line<CR>
 
-" Quick MRU search, this is wicked useful
-nnoremap <silent> [unite]m :<C-u>Unite -buffer-name=mru file_mru<CR>
+" ;m MRU All Vim buffers, not file buffer
+nnoremap <silent> <leader>m :<C-u>Unite -buffer-name=mru file_mru<CR>
 
-" Quick find, seemingly finds nothing?
-" nnoremap <silent> [unite]n :<C-u>Unite -buffer-name=find find:.<CR>
-
-" Quick commands, lists all available vim commands
-nnoremap <silent> [unite]c :<C-u>Unite -buffer-name=commands command<CR>
-
-" Quick bookmarks
-nnoremap <silent> [unite]b :<C-u>Unite -buffer-name=bookmarks bookmark<CR>
+" ;c Quick commands, lists all available vim commands
+nnoremap <silent> <leader>c :<C-u>Unite -buffer-name=commands command<CR>
 
 " Custom Unite settings
 autocmd MyAutoCmd FileType unite call s:unite_settings()
 function! s:unite_settings()
 
+  " exit with esc
   nmap <buffer> <ESC> <Plug>(unite_exit)
   imap <buffer> <ESC> <Plug>(unite_exit)
-  " imap <buffer> <c-j> <Plug>(unite_select_next_line)
+
+  " Ctrl jk mappings
   imap <buffer> <c-j> <Plug>(unite_insert_leave)
   nmap <buffer> <c-j> <Plug>(unite_loop_cursor_down)
   nmap <buffer> <c-k> <Plug>(unite_loop_cursor_up)
-  imap <buffer> <c-a> <Plug>(unite_choose_action)
-  " imap <buffer> <Tab> <Plug>(unite_exit_insert)
+
+  " jj becuase you're lazy, and leave insert mode
   imap <buffer> jj <Plug>(unite_insert_leave)
-  imap <buffer> <C-w> <Plug>(unite_delete_backward_word)
-  imap <buffer> <C-u> <Plug>(unite_delete_backward_path)
-  imap <buffer> '     <Plug>(unite_quick_match_default_action)
-  nmap <buffer> '     <Plug>(unite_quick_match_default_action)
+
+  " qq becuase you're lazy, and quit unite
+  imap <buffer> qq <Plug>(unite_exit)
+
+  " refresh unite
   nmap <buffer> <C-r> <Plug>(unite_redraw)
   imap <buffer> <C-r> <Plug>(unite_redraw)
+
+  " split control
   inoremap <silent><buffer><expr> <C-s> unite#do_action('split')
   nnoremap <silent><buffer><expr> <C-s> unite#do_action('split')
   inoremap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
   nnoremap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
 
-  let unite = unite#get_current_unite()
-  if unite.buffer_name =~# '^search'
-    nnoremap <silent><buffer><expr> r     unite#do_action('replace')
-  else
-    nnoremap <silent><buffer><expr> r     unite#do_action('rename')
-  endif
-
-  nnoremap <silent><buffer><expr> cd     unite#do_action('lcd')
-
-  " Using Ctrl-\ to trigger outline, so close it using the same keystroke
-  if unite.buffer_name =~# '^outline'
-    imap <buffer> <C-\> <Plug>(unite_exit)
-  endif
-
-  " Using Ctrl-/ to trigger line, close it using same keystroke
-  if unite.buffer_name =~# '^search_file'
-    imap <buffer> <C-_> <Plug>(unite_exit)
-  endif
 endfunction
-
-" Start in insert mode
-let g:unite_enable_start_insert = 1
-
-" Enable history yank source
-let g:unite_source_history_yank_enable = 1
-
-" Open in bottom right
-let g:unite_split_rule = "botright"
-
-" Shorten the default update date of 500ms
-let g:unite_update_time = 200
-
-let g:unite_source_file_mru_limit = 1000
-let g:unite_cursor_line_highlight = 'TabLineSel'
-" let g:unite_abbr_highlight = 'TabLine'
-
-let g:unite_source_file_mru_filename_format = ':~:.'
-let g:unite_source_file_mru_time_format = ''
-
 
 
 "===============================================================================
