@@ -45,6 +45,10 @@ set cursorline
 " enable mouse support
 set mouse=a
 
+" This sends all yanks to the system clipboard (requires building vim with
+" +clipboard support)
+set clipboard=unnamed
+
 " display incomplete commands
 set showcmd
 

@@ -72,8 +72,11 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'groenewege/vim-less'
 Bundle 'cakebaker/scss-syntax.vim'
+
+" Markdown Editing
 Bundle 'tpope/vim-markdown'
-Bundle 'terryma/vim-instant-markdown'
+Bundle 'amix/vim-zenroom2'
+Bundle 'junegunn/goyo.vim'
 
 " Plink those keys
 Bundle 'arpeggio'

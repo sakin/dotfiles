@@ -5,3 +5,5 @@ alias vimclean='vim +BundleClean +qall'
 alias l='ls -la'
 
 alias mysql='/Applications/MAMP/Library/bin/mysql'
+
+alias tmux='tmux -2'
