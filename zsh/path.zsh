@@ -1,2 +1,2 @@
 # Add MAMP PHP bin
-export PATH=/Applications/MAMP/bin/php/php5.3.27/bin:$PATH
+export PATH=/Applications/MAMP/bin/php/php5.4.19/bin:$PATH

@@ -88,3 +88,6 @@ Bundle 'AutoClose'
 Bundle 'fugitive.vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-git'
+
+" Better visual select
+Bundle 'terryma/vim-expand-region'

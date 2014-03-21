@@ -158,7 +158,13 @@ else
 endif
 
 
+"===============================================================================
+" Normal Mode Mappings
+"===============================================================================
 
+" Bind my expand region for better visual select
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 
 "===============================================================================
 " Normal Mode Shift Key Mappings
