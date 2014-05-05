@@ -166,6 +166,10 @@ endif
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
+" Map space to / (search) and c-space to ? (backwards search)
+map <space> /
+map <c-space> ?"
+
 "===============================================================================
 " Normal Mode Shift Key Mappings
 "===============================================================================
@@ -190,7 +194,7 @@ let mapleader=";"
 let maplocalleader=";"
 
 " clear the search buffer when hitting ;return
-map <silent> <leader><cr> :nohl<cr> 
+map <silent> <leader><cr> :nohl<cr>
 
 " toggle last buffer
 nnoremap <leader><leader> <c-^>
@@ -321,7 +325,7 @@ let g:unite_source_history_yank_enable = 1
 let g:unite_split_rule = "botright"
 
 " Shorten the default update date of 500ms
-let g:unite_update_time = 100
+let g:unite_update_time = 300
 
 " set up mru limit
 let g:unite_source_file_mru_limit = 1000
@@ -362,9 +366,9 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
 nnoremap [unite] <Nop>
 
 " ;f Fuzzy Find Everything
-" Buffers, recently used, recursive async file search
+" files, Buffers, recursive async file search
 nnoremap <silent> <leader>f :<C-u>Unite
-      \ -buffer-name=files buffer file_mru file_rec/async<CR>
+      \ -buffer-name=files buffer file_rec/async<CR>
 
 " ;y Yank history
 nnoremap <silent> <leader>y :<C-u>Unite -buffer-name=yanks history/yank<CR>
