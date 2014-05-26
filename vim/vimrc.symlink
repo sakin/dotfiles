@@ -354,6 +354,7 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ 'google/obj/',
       \ 'tmp/',
       \ 'node_modules/',
+      \ 'vendor/',
       \ '.sass-cache',
       \ ], '\|'))
 
