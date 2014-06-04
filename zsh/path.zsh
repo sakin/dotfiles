@@ -1,2 +1,2 @@
 # Add MAMP PHP bin
-export PATH=/usr/local/sbin:/Applications/MAMP/bin/php/php5.3.27/bin:$PATH
+export PATH=/usr/local/sbin:~/npm/node_modules/bin/:/Applications/MAMP/bin/php/php5.3.27/bin:$PATH
