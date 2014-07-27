@@ -1,33 +1,40 @@
 "===============================================================================
+" Vundle Plugins
+"===============================================================================
+" set the runtime path to include Vundle and initialize
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+source $HOME/.vim/packages.vim
+call vundle#end()
+
+"===============================================================================
 " Setup
 "===============================================================================
 
-" be IMproved
+" Defaults
 set nocompatible
-
-" 'required' ???
-filetype off
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" load all vundle plugins
-source $HOME/.vim/packages.vim
-
-" make stuff pretty
-syntax on
-
-" Be a cool guy
-scriptencoding utf-8
+syntax enable
 set encoding=utf-8
+scriptencoding utf-8
+set showcmd
+filetype plugin indent on
+
+" Whitespace
+set nowrap
+set tabstop=2 shiftwidth=2
+set expandtab
+set backspace=indent,eol,start
+
+" Searching
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
 
 " better nerdtree splits
 set splitbelow
 set splitright
-
-" indent git commits
-filetype plugin indent on
 
 " Update how vim looks
 set background=dark
@@ -83,9 +90,6 @@ set noexpandtab
 
 " Display unprintable chars
 set list
-
-"set listchars=tab:→\ 
-
 set listchars=tab:\ \ 
 set listchars+=nbsp:␣
 set listchars+=extends:❯
@@ -110,16 +114,7 @@ set backspace=indent,eol,start
 " Set up code folding
 set foldmethod=indent
 set foldcolumn=2
-
-" Open folds by default
 set foldlevel=99
-
-
-" Improve searching
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
 
 " Highlight line 80
 set cc=80
@@ -137,6 +132,8 @@ let g:NERDTreeQuitOnOpen = 0
 " I'm getting tired of accidentally holding down the shift key...
 " Reissue `w` even if I capitalize it...
 com W w
+com Wq wq
+com WQ WQ
 com Q q
 
 " Add powerline symbol fonts to airline
@@ -165,10 +162,6 @@ endif
 " Normal Mode Mappings
 "===============================================================================
 
-" Bind my expand region for better visual select
-vmap v <Plug>(expand_region_expand)
-vmap <C-v> <Plug>(expand_region_shrink)
-
 " Map space to / (search) and c-space to ? (backwards search)
 map <space> /
 map <c-space> ?"
@@ -185,8 +178,6 @@ noremap H ^
 
 " L: Go to end of line.
 noremap L g_
-
-
 
 "===============================================================================
 " Leader Key Mappings
@@ -214,7 +205,6 @@ nnoremap <leader>n :NERDTreeToggle<cr>
 " open .vimrc
 nmap <leader>v :tabnew ~/.vimrc <cr>
 
-
 "===============================================================================
 " Normal Mode Ctrl Key Mappings
 "===============================================================================
@@ -226,20 +216,6 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 nnoremap <c-r> <c-w>r
 
-
-
-"===============================================================================
-" Insert Mode Ctrl Key Mappings
-"===============================================================================
-
-" Ctrl-e: Go to end of line
-inoremap <c-e> <esc>A
-
-" Ctrl-a: Go to begin of line
-inoremap <c-a> <esc>I
-
-
-
 "===============================================================================
 " Syntastic
 "===============================================================================
@@ -249,16 +225,12 @@ let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_auto_loc_list=1
 
-
-
 "===============================================================================
 " Arpeggio
 "===============================================================================
 
 " map jk to escape (mashing ftw)
 call arpeggio#map('i', '', 0, 'jk', '<Esc>') " jk | esc
-
-
 
 "===============================================================================
 " NeoComplCache
@@ -293,23 +265,6 @@ endif
 
 " Reverse tabbing direction for autocompletes
 let g:SuperTabDefaultCompletionType = "<c-n>"
-
-
-
-"===============================================================================
-" EasyMotion
-"===============================================================================
-
-" Tweak the colors
-" hi link EasyMotionTarget WarningMsg
-" hi link EasyMotionShade  Comment
-
-" let g:EasyMotion_do_mapping = 0
-" nnoremap <silent> <C-f> :call EasyMotion
-" nnoremap <silent> <C-t> :call EasyMotion
-
-
-
 
 "===============================================================================
 " Unite Setup
@@ -366,8 +321,6 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ 'web/wp',
       \ ], '\|'))
 
-
-" <F1>: Help
 
 " Unite Commands ===============================================================
 
