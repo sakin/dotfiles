@@ -140,7 +140,10 @@ com W w
 com Q q
 
 " Add powerline symbol fonts to airline
-let g:airline_powerline_fonts = 1
+" Been giving me issues, removing for now
+" let g:airline_powerline_fonts = 1
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 
 " Sets how many lines of history vim has to remember
 set history=10000
@@ -355,7 +358,12 @@ call unite#custom_source('file_rec,file_rec/async,file_mru,file,buffer,grep',
       \ 'tmp/',
       \ 'node_modules/',
       \ 'vendor/',
+      \ 'Vendor/',
+      \ 'app_old/',
+      \ 'plugins/',
+      \ 'bower_components/',
       \ '.sass-cache',
+      \ 'web/wp',
       \ ], '\|'))
 
 
