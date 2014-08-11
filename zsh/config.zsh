@@ -1,7 +1,8 @@
+# this is actually overwritten by PROMPT_SUBST
 if [[ -n $SSH_CONNECTION ]]; then
-  export PS1='%m:%3~$(git_info_for_prompt)%# '
+  export PS1='%m:%3~$(git_prompt_info)%# '
 else
-  export PS1='%3~$(git_info_for_prompt)%# '
+  export PS1='%3~$(git_prompt_info)%# '
 fi
 
 export LSCOLORS="exfxcxdxbxegedabagacad"

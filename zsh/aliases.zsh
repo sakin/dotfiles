@@ -1,8 +1,8 @@
 alias reload!='. ~/.zshrc'
 alias n='~/ngrok -subdomain=iamunr 80'
 alias ngrok='~/ngrok -subdomain=iamunr'
-alias viminstall='vim +BundleInstall +qall'
-alias vimclean='vim +BundleClean +qall'
+alias viminstall='vim +PluginInstall +qall'
+alias vimclean='vim +PluginClean +qall'
 alias l='ls -la'
 alias j='jump'
 

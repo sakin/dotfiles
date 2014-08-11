@@ -15,7 +15,7 @@ Plugin 'surround.vim'
 
 " Autocomplete my files
 Plugin 'Shougo/neocomplcache.vim'
-Plugin 'ervandew/supertab'
+"Plugin 'ervandew/supertab'
 
 " Set up unite
 Plugin 'Shougo/unite.vim'
@@ -35,7 +35,7 @@ Plugin 'scrooloose/syntastic'
 
 " Allow vim + iTerm to work nicely
 " Don't know why this might be needed? We'll see
-" Plugin 'sjl/vitality.vim'
+Plugin 'sjl/vitality.vim'
 
 " I miss sublime text
 Plugin 'terryma/vim-multiple-cursors'
@@ -53,3 +53,10 @@ Plugin 'arpeggio'
 
 " I'm lazy
 Plugin 'AutoClose'
+
+" Better clipboard management
+Plugin 'svermeulen/vim-easyclip'
+
+"Align text properly
+Plugin 'tommcdo/vim-lion'
+
