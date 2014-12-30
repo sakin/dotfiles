@@ -11,3 +11,6 @@ alias mysql='/Applications/MAMP/Library/bin/mysql'
 alias tmux='tmux -2'
 
 alias acfelastic='sudo /usr/local/share/elasticsearch/bin/service/elasticsearch start'
+
+# for debugging chrome CORS issues, mainly ionic development
+alias corschrome='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --disable-web-security'

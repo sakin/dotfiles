@@ -65,7 +65,7 @@ nnoremap [unite] <Nop>
 " ;f Fuzzy Find Everything
 " files, Buffers, recursive async file search
 nnoremap <silent> <leader>f :<C-u>Unite
-      \ -buffer-name=files buffer file_rec/async<CR>
+      \ -buffer-name=files file_rec/async<CR>
 
 " ;y Yank history
 " Shows all your yanks, when you accidentally overwrite
@@ -76,6 +76,9 @@ nnoremap <silent> <leader>o :<C-u>Unite -buffer-name=outline -vertical outline<C
 
 " ;m MRU All Vim buffers, not file buffer
 nnoremap <silent> <leader>m :<C-u>Unite -buffer-name=mru file_mru<CR>
+
+" ;b view open buffers
+nnoremap <silent> <leader>b :<C-u>Unite -buffer-name=buffer buffer<CR>
 
 " ;c Quick commands, lists all available vim commands
 nnoremap <silent> <leader>c :<C-u>Unite -buffer-name=commands command<CR>
@@ -97,9 +100,8 @@ function! s:unite_settings()
   nmap <buffer> <c-j> <Plug>(unite_loop_cursor_down)
   nmap <buffer> <c-k> <Plug>(unite_loop_cursor_up)
 
-  " jj kk becuase you're lazy, and leave insert mode
+  " jj becuase you're lazy, and leave insert mode
   imap <buffer> jj <Plug>(unite_insert_leave)
-  imap <buffer> kk <Plug>(unite_insert_leave)
 
   " qq `` becuase you're lazy, and quit unite
   imap <buffer> qq <Plug>(unite_exit)

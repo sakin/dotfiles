@@ -44,7 +44,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'pangloss/vim-javascript'
 Plugin 'othree/html5.vim'
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'shawncplus/phpcomplete.vim'
+"Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'groenewege/vim-less'
 Plugin 'cakebaker/scss-syntax.vim'
 
