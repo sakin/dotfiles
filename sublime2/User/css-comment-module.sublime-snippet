@@ -1,0 +1,43 @@
+<snippet>
+  <content><![CDATA[
+// *************************************
+//
+//   ${1:module}
+//   -> ${2:description}
+//
+// *************************************
+
+// .${3:module}
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+// .module--modifier
+
+// -------------------------------------
+//   States
+// -------------------------------------
+
+// .is-module-state
+
+// -------------------------------------
+//   Context
+// -------------------------------------
+
+// .has-module
+
+// -------------------------------------
+//   Submodules
+// -------------------------------------
+
+// ----- Submodule ----- //
+
+// .module-submodule
+
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>css-module</tabTrigger>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <scope>source.scss</scope>
+</snippet>

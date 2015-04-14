@@ -1,3 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
-let g:netrw_dirhist_1='/Users/PaulMorrison/.dotfiles'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/winstonly'
+let g:netrw_dirhist_2='/Users'
+let g:netrw_dirhist_3='/Users/winstonly/.rbenv/versions/2.1.2/gemsets/flipgive/gems/bootstrap-sass-3.2.0.0'
+let g:netrw_dirhist_4='/Users/winstonly/.rbenv/versions/2.1.2/gemsets/flipgive/gems/bootstrap-sass-3.2.0.0/assets'

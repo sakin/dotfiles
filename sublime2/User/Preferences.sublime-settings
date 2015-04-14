@@ -1,5 +1,32 @@
 {
-  "font_size": 12.0,
-  "theme": "Soda Dark.sublime-theme",
-  "ensure_newline_at_eof_on_save": true
+	"additional_path_items":
+	[
+		"/Users/winstonly/.rbenv/shims"
+	],
+	"centurion_color_blue": false,
+	"centurion_color_grey": false,
+	"centurion_color_orange": false,
+	"centurion_color_red": false,
+	"centurion_color_yellow": false,
+	"color_scheme": "Packages/Theme - Solarized/Solarized (dark).tmTheme",
+	"ensure_newline_at_eof_on_save": true,
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg",
+		"CVS",
+		"tmp"
+	],
+	"font_size": 12.0,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"scroll_past_end": true,
+	"tab_size": 2,
+	"theme": "Centurion.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"word_wrap": "false"
 }
