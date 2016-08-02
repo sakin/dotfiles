@@ -1,1 +1,16 @@
 authtoken: 2saB8K5zJvVGYKBLszf66_4jqs3E1U48ArzwBFSYek
+tunnels:
+  flip:
+    proto: http
+    addr: 80
+    subdomain: wly
+    host-header: rewrite flipgive.dev
+
+  # flip-http:
+  #   addr: 80
+  #   proto: http
+  #   hostname: www.flipgive.dev
+  # flip-https:
+  #   addr: 443
+  #   proto: tls
+  #   hostname: www.flipgive.dev

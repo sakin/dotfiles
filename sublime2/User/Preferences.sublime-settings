@@ -3,7 +3,25 @@
 	[
 		"/Users/winstonly/.rbenv/shims"
 	],
-	"centurion_color_blue": false,
+	"binary_file_patterns":
+	[
+		"*.jpg",
+		"*.jpeg",
+		"*.png",
+		"*.gif",
+		"*.ttf",
+		"*.tga",
+		"*.dds",
+		"*.ico",
+		"*.eot",
+		"*.pdf",
+		"*.swf",
+		"*.jar",
+		"*.zip",
+		"*.log",
+		"*.dump"
+	],
+	"centurion_color_blue": true,
 	"centurion_color_grey": false,
 	"centurion_color_orange": false,
 	"centurion_color_red": false,
@@ -16,9 +34,13 @@
 		".git",
 		".hg",
 		"CVS",
-		"tmp"
+		"tmp",
+		".tmp",
+		".sass-cache",
+		".log",
+		".dump"
 	],
-	"font_size": 12.0,
+	"font_size": 15.0,
 	"ignored_packages":
 	[
 		"Vintage"
